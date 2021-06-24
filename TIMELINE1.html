@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Alert System Timeline - NISH</title>
+	<link rel="stylesheet" type="text/css" href="css/NAVBAR.css">
+	<link rel="stylesheet" type="text/css" href="css/TIMELINE.css">
+	<link rel="stylesheet" type="text/css" href="css/TLBODY.css">
+	<link rel="stylesheet" type="text/css" href="css/FOOTER.css">
+</head>
+<body>
+	<div class="nav-bar">
+		<ul class="heading">
+			<li class="head"><a href="index.html">ALERT SYSTEM</a></li>
+			<li class="inline-last"><a href="TEAM.html" class="side">Team</a></li>
+			<li class="inline"><a href="TIMELINE1.html" class="side">Timeline</a></li>
+			<li class="inline"><a href="index.html" class="side">About</a></li>
+		</ul>
+	</div>
+<div class="content">
+	<div >
+	<ul >
+		<li class="timeline1"><a href="TIMELINE1.html"><img class="timeline1"src="images/globel.png" /><br />WEEK 1</a></li>
+		<li class="timeline"><a href="TIMELINE2.html"><img class="timeline" src="images/globe.png" /><br />WEEK 2</a></li>
+		<li class="timeline"><a href="TIMELINE3.html"><img class="timeline" src="images/globe.png" /><br />WEEK 3</a></li>
+		<li class="timeline"><a href="TIMELINE4.html"><img class="timeline" src="images/globe.png" /><br />WEEK 4</a></li>
+	</ul>
+	</div>
+	
+	<div class="container" >
+		<p class="week">WEEK 1</p>
+		<p class="date">April 10 2021</p>
+		<p class="content1">Our first task to create a circuit diagram and choosing the right components according to the specifications. I learned about each unit, its uses, and its working one by one. Then after few attempts in creating the perfect circuit diagram for our Alert System, we finalized one with the help of Amith Sir. The final version of the circuit diagram is shown below.</p>
+		<p class="head2">Circuit Diagram</p><br />
+		<img class="inimage" src="images/circuit.png" />
+		<p class="content2">The next task of the day was to assemble the circuit on a breadboard. With the help of the circuit diagram, it was pretty much easier to do it. First, we used only the motor in the circuit. Then we connected the ESP32 with the interface created in Blynk App to ensure it is working. </p>
+		<p class="code">	#define BLYNK_PRINT Serial<br />
+				#include <br />
+				#include <br />
+				#include <br />
+				int pin = 2;<br />
+				char auth[] = "pGw0NoqVl6aWtT56tG1LPZdYDMQUAHPS";     // You should get Auth Token in the Blynk App.<br />
+				char ssid[] = "realme 3 Pro";       // Your Wi-Fi Credentials<br />
+				char pass[] = "12345678";<br />
+
+				void setup() {  <br />
+				  pinMode(pin, OUTPUT);<br />
+				  pinMode(pin, HIGH);<br />
+				  Serial.begin(115200);<br />
+				  delay(10);<br />
+				  Serial.print("Connecting to ");<br />
+				  Serial.println(ssid);<br />
+				  WiFi.begin(ssid, pass);<br />
+				  int wifi_ctr = 0;<br />
+				  while (WiFi.status() != WL_CONNECTED) {<br />
+				  delay(500);<br />
+				  Serial.print(".");<br />
+				  }<br />
+				  Serial.println("WiFi connected");  <br />
+				  Blynk.begin(auth, ssid, pass);<br />
+				}<br />
+				void loop(){<br />
+					Blynk.run();<br />
+				}<br />
+		</code>
+		<p class="content2">Later, we connected a LED bulb and a buzzer to ensure we are getting vibration, light, and sound alerts.</p>
+		<img class="inimage1" src="images/blynk.png" />
+		<br />
+		<img class="inimage2" src="images/images.jpg" />
+	</div>
+</div>
+<footer>
+		<h3>ALERT SYSYTEM - NISH &copy; Vaishnavy</h3>
+</footer>
+
+</body>
+</html>
